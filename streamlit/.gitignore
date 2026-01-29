@@ -1,0 +1,67 @@
+# ============================================
+# ARQUIVOS SENSÍVEIS - NÃO COMMITAR
+# ============================================
+
+# Secrets do Streamlit (contém credenciais do banco)
+.streamlit/secrets.toml
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.production
+
+# Credenciais
+*.pem
+*.key
+credentials.json
+
+# ============================================
+# PYTHON
+# ============================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# ============================================
+# STREAMLIT
+# ============================================
+
+# Cache do Streamlit
+.streamlit/cache/
+
+# ============================================
+# SISTEMA
+# ============================================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ============================================
+# LOGS
+# ============================================
+
+*.log
+logs/

@@ -1,0 +1,16 @@
+[theme]
+# Tema UFES - Universidade Federal do Espírito Santo
+primaryColor = "#004B87"      # Azul UFES (principal)
+backgroundColor = "#FFFFFF"    # Branco (fundo principal)
+secondaryBackgroundColor = "#F0F2F6"  # Cinza claro (fundo secundário)
+textColor = "#262730"          # Cinza escuro (texto principal)
+font = "sans serif"
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false
+
