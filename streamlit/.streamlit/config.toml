@@ -1,4 +1,5 @@
 [theme]
+base = "light"
 # Tema UFES - Universidade Federal do Espírito Santo
 primaryColor = "#004B87"      # Azul UFES (principal)
 backgroundColor = "#FFFFFF"    # Branco (fundo principal)
