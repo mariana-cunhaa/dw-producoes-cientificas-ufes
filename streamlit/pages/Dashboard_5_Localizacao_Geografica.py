@@ -65,19 +65,13 @@ try:
     anos_disponiveis = [int(x) for x in df_anos["ano"].tolist()] if not df_anos.empty else []
     
     if anos_disponiveis:
-        col_f1, col_f2 = st.columns([1, 2])
-        
-        with col_f1:
-            termo_busca = st.text_input("Termo de busca para instituição", value="UFES", help="Busca por UFES ou Universidade Federal do Espírito Santo")
-        
-        with col_f2:
-            ano_ini, ano_fim = st.slider(
-                "Selecione o intervalo de anos",
-                min_value=min(anos_disponiveis),
-                max_value=max(anos_disponiveis),
-                value=(min(anos_disponiveis), max(anos_disponiveis)),
-                step=1,
-            )
+        ano_ini, ano_fim = st.slider(
+            "Selecione o intervalo de anos",
+            min_value=min(anos_disponiveis),
+            max_value=max(anos_disponiveis),
+            value=(min(anos_disponiveis), max(anos_disponiveis)),
+            step=1,
+        )
         
         query_ufes = f"""
         SELECT
@@ -92,7 +86,7 @@ try:
           ON dlt.id_localizacao_trabalhos = f.id_localizacao_trabalhos
         WHERE dtp.tipo_producao = 'Apresentação de Trabalho'
           AND (
-            dlt.instituicao ILIKE '%{termo_busca}%' OR
+            dlt.instituicao ILIKE '%UFES%' OR
             dlt.instituicao ILIKE '%Universidade Federal do Espírito Santo%'
           )
           AND dt.ano BETWEEN {int(ano_ini)} AND {int(ano_fim)}
@@ -138,12 +132,12 @@ try:
             st.plotly_chart(fig1, use_container_width=True, config=get_plotly_config())
             
         else:
-            st.warning("⚠️ Nenhum dado encontrado para os filtros selecionados.")
+            st.warning("Nenhum dado encontrado para os filtros selecionados.")
     else:
-        st.error("❌ Não foram encontrados anos disponíveis para 'Apresentação de Trabalho'.")
+        st.error("Não foram encontrados anos disponíveis para 'Apresentação de Trabalho'.")
         
 except Exception as e:
-    st.error(f"❌ Erro ao carregar dados: {e}")
+    st.error(f"Erro ao carregar dados: {e}")
 
 st.markdown("---")
 
@@ -234,10 +228,10 @@ try:
                 height=400
             )
     else:
-        st.warning("⚠️ Nenhum dado encontrado")
+        st.warning("Nenhum dado encontrado")
         
 except Exception as e:
-    st.error(f"❌ Erro ao carregar dados: {e}")
+    st.error(f"Erro ao carregar dados: {e}")
 
 st.markdown("---")
 
@@ -342,12 +336,12 @@ try:
             st.plotly_chart(fig4, use_container_width=True, config=get_plotly_config())
             
         else:
-            st.warning("⚠️ Nenhum dado encontrado para o intervalo selecionado.")
+            st.warning("Nenhum dado encontrado para o intervalo selecionado.")
     else:
-        st.error("❌ Não foram encontrados anos disponíveis.")
+        st.error("Não foram encontrados anos disponíveis.")
         
 except Exception as e:
-    st.error(f"❌ Erro ao carregar dados: {e}")
+    st.error(f"Erro ao carregar dados: {e}")
 
 st.markdown("---")
 
